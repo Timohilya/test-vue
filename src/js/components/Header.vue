@@ -1,5 +1,5 @@
 <template>
-    <header>123</header>
+    <header></header>
 </template>
 
 <script>
@@ -9,5 +9,8 @@ export default {
 </script>
 
 <style scoped>
-
+header {
+    height: 50px;
+    background-color: #474747;
+}
 </style>
