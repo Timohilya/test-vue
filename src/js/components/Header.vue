@@ -9,8 +9,5 @@ export default {
 </script>
 
 <style scoped>
-header {
-    height: 50px;
-    background-color: #474747;
-}
+
 </style>
