@@ -70,10 +70,19 @@ const Todos = {
                     result = result.filter(todo => todo.title.startsWith(state.filter.query))
                 }
                 
-                console.log(result)
                 return result
             }
-            return null
+            return state.todos
+        },
+        getUserIds: (state) => {
+            if ( !!state.todos ) {
+                const result = []
+                state.todos.forEach(todo => {
+                    if ( !result.includes(todo.userId) ) result.push(todo.userId)
+                })
+                return result
+            }
+            return state.todos
         },
         getLastId: (state) => {
             return state.todos[state.todos.length-1].id

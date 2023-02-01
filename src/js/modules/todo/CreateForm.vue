@@ -74,7 +74,7 @@ export default {
             this.v$.$touch()
             if ( !this.v$.$invalid ) {
                 const data = {
-                    userId: this.formData.userId,
+                    userId: parseInt(this.formData.userId),
                     id: this.todoLastId+1,
                     title: this.formData.title,
                     completed: false
@@ -87,7 +87,7 @@ export default {
                     },
                 })
                     .then(res => res.json())
-                    .then(data => {
+                    .then(res => {
                         this.pushTodo(data)
                         this.resetForm()
                     })

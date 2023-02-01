@@ -46,8 +46,8 @@ export default {
     data() {
         return {
             formData: {
-                username: 'Bret',
-                phone: '1-770-736-8031 x56442'
+                username: '',
+                phone: ''
             },
             userNotFound: false
         }

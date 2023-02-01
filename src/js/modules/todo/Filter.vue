@@ -5,24 +5,19 @@
             <div class="form-field">
                 <input type="text" name="search" placeholder="Search" v-model="query">
             </div>
-            <select v-model="type">
-                <option value="" selected>All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
-                <option value="favorites">Favorites</option>
-            </select>
-            <select v-model="userId">
-                <option value="" selected>All</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
+            <Select :label="'Type'"
+                    :options="typeOptions"
+                    v-model="type" />
+            <Select :label="'UserId'"
+                    :options="userIdOptions"
+                    v-model="userId" />
         </form>
     </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
+import Select from '../../components/Select.vue'
 
 export default {
     name: 'Filter',
@@ -30,7 +25,30 @@ export default {
         return {
             query: '',
             type: '',
-            userId: null
+            userId: null,
+            typeOptions: [
+                { value: '', name: 'All', selected: true },
+                { value: 'completed', name: 'Completed' },
+                { value: 'uncompleted', name: 'Uncompleted' },
+                { value: 'favorites', name: 'Favorites' }
+            ]
+        }
+    },
+    components: {
+        Select
+    },
+    computed: {
+        ...mapGetters({
+            userIds: 'todos/getUserIds'
+        }),
+
+        userIdOptions() {
+            const result = [{ value: '', name: 'All', selected: true }]
+            if ( this.userIds === null ) return result
+            this.userIds.forEach(id => {
+                result.push({ value: id, name: id })
+            })
+            return result
         }
     },
     watch: {
