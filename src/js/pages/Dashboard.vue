@@ -2,7 +2,16 @@
     <section class="dashboard">
         <div class="wrapper">
             <h1>Dashboard</h1>
-            <UserInfo :data="activeUser" />
+            <div class="dashboard-row">
+                <div class="dashboard-col">
+                    <UserInfo :data="activeUser" />
+                </div>
+                <div class="dashboard-col">
+                    <CreateForm />
+                </div>
+            </div>
+            <Filter />
+            <List />
         </div>
     </section>
 </template>
@@ -10,11 +19,17 @@
 <script>
 import { mapGetters } from 'vuex';
 import UserInfo from '../modules/users/UserInfo.vue'
+import Filter from '../modules/todo/Filter.vue'
+import List from '../modules/todo/List.vue'
+import CreateForm from '../modules/todo/CreateForm.vue'
 
 export default {
     name: 'Dashboard',
     components: {
-        UserInfo
+        UserInfo,
+        Filter,
+        List,
+        CreateForm
     },
     computed: {
         ...mapGetters({

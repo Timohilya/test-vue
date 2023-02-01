@@ -3,9 +3,10 @@
 
 @import './components/header'
 @import './components/footer'
-@import './pages/login/main'
-@import './pages/dashboard/main'
-@import './modules/users/user-info'
+@import './pages/login'
+@import './pages/dashboard'
+@import './modules/users/main'
+@import './modules/todos/main'
     
 * 
     margin: 0
@@ -30,10 +31,10 @@ a
     text-decoration: none
 
 .form-field
-    input[type=text]
+    input[type=text],
+    textarea
         width: 100%
-        height: 41px
-        padding: 0 10px
+        padding: 10px
         color: #353535
         font: 17px $robotoRegular
         font-weight: 400
@@ -43,8 +44,14 @@ a
         border-radius: 5px
         &::placeholder
             color: #353535
+    input[type=text]
+        height: 41px
+        padding: 0 10px
+    textarea
+        resize: none
     &.error
-        input[type=text]
+        input[type=text],
+        textarea
             border: 1px solid red
 
 .error

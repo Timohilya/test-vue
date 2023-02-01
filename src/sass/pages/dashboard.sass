@@ -1,0 +1,17 @@
+.dashboard
+    padding: 50px 0
+    h1
+        text-align: center
+    &-row
+        display: flex
+        @media screen and (max-width: 767px)
+            flex-direction: column
+    &-col
+        width: 50%
+        @media screen and (max-width: 767px)
+            width: 100%
+    .user-info,
+    .todos-list,
+    .todo-create,
+    .todos-filter
+        margin: 25px 0 0 0
